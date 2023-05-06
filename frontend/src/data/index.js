@@ -10,9 +10,6 @@ import {
   Camera,
   File,
   Image,
-  LinkSimple,
-  PaperPlaneTilt,
-  Smiley,
   Sticker,
 } from "phosphor-react";
 

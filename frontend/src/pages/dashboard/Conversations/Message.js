@@ -8,7 +8,6 @@ import {
   Link,
   MenuList,
   MenuItem,
-  ListItemIcon,
   ListItemText,
   Paper,
   ClickAwayListener,
@@ -19,10 +18,6 @@ import {
   PhotoSizeSelectActualOutlined as PhotoSizeSelectActualOutlinedIcon,
   FileDownloadOutlined as FileDownloadOutlinedIcon,
   MoreHoriz as MoreHorizIcon,
-  ContentCut,
-  ContentCopy,
-  ContentPaste,
-  Cloud,
 } from "@mui/icons-material";
 import { Message_options } from "../../../data";
 

@@ -149,6 +149,9 @@ export const Chats = () => {
           direction={"row"}
           alignItems={"center"}
           justifyContent={"space-between"}
+          sx={{
+            flexShrink: 0,
+          }}
         >
           <Typography variant="h4" component={"h4"}>
             Chats
@@ -206,9 +209,9 @@ export const Chats = () => {
       <ScrollBar
         timeout={500}
         clickOnTrack={false}
-        style={{
+        sx={{
           flex: 1,
-          maxHeight: "512px",
+          pb: 2,
         }}
       >
         <Stack

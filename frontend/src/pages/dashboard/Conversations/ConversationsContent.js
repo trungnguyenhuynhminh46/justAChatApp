@@ -18,7 +18,6 @@ const ConversationsContent = () => {
       clickOnTrack={false}
       style={{
         flex: 1,
-        maxHeight: "600px",
       }}
     >
       <Stack

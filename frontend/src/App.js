@@ -1,5 +1,4 @@
 import "simplebar/src/simplebar.css";
-import SimpleBarReact from "simplebar-react";
 // routes
 import Router from "./routes";
 // theme

@@ -9,6 +9,7 @@ const Conversations = () => {
     <Stack
       sx={{
         flex: 1,
+        height: "100vh",
       }}
     >
       <ConversationsHeader />

@@ -4,10 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
+import { Provider as ReduxProvider } from "react-redux";
+import { store } from "../src/app/store";
 // contexts
 import SettingsProvider from "./contexts/SettingsContext";
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -15,7 +15,9 @@ root.render(
     <HelmetProvider>
       <SettingsProvider>
         <BrowserRouter>
-          <App />
+          <ReduxProvider store={store}>
+            <App />
+          </ReduxProvider>
         </BrowserRouter>
       </SettingsProvider>
     </HelmetProvider>

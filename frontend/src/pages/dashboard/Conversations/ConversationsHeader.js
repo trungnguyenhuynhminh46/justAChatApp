@@ -2,6 +2,12 @@ import React from "react";
 import StyledBadge from "../../../components/StyledBadge";
 import { Stack, Avatar, Typography, IconButton, Divider } from "@mui/material";
 import { faker } from "@faker-js/faker";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setUserIdProfile,
+  closeRightSideBar,
+  selectUserIdProfile,
+} from "../../../app/slices/rightSideBarSlice";
 import { useTheme } from "@mui/material/styles";
 import {
   VideocamOutlined as VideocamOutlinedIcon,
@@ -11,7 +17,9 @@ import {
 } from "@mui/icons-material";
 
 const ConversationsHeader = () => {
+  const userIdProfile = useSelector(selectUserIdProfile);
   const theme = useTheme();
+  const dispatch = useDispatch();
   return (
     <Stack
       px={4}
@@ -21,10 +29,13 @@ const ConversationsHeader = () => {
       alignItems={"center"}
       justifyContent={"start"}
       sx={{
+        flexShrink: 0,
         backgroundColor:
           theme.palette.mode === "light"
             ? "#F8FAFF"
             : theme.palette.background.paper,
+        cursor: "pointer",
+        height: "90px",
       }}
     >
       <StyledBadge
@@ -38,6 +49,13 @@ const ConversationsHeader = () => {
             height: 48,
           }}
           src={faker.image.avatar()}
+          onClick={() => {
+            if (userIdProfile) {
+              dispatch(closeRightSideBar());
+            } else if (!userIdProfile) {
+              dispatch(setUserIdProfile({ userId: "This is just a user id" }));
+            }
+          }}
         />
       </StyledBadge>
       <Stack gap={0.25}>

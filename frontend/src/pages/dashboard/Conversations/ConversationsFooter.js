@@ -16,6 +16,7 @@ const ConversationsFooter = () => {
     <Stack
       direction={"row"}
       sx={{
+        flexShrink: 0,
         position: "relative",
         py: 2.5,
         px: 3,
@@ -25,6 +26,7 @@ const ConversationsFooter = () => {
           theme.palette.mode === "light"
             ? "#F8FAFF"
             : theme.palette.background.paper,
+        height: "90px",
       }}
     >
       {showEmoji && (
@@ -59,9 +61,9 @@ const ConversationsFooter = () => {
               left: "40px",
             }}
           >
-            {Footer_Actions.map((item) => {
+            {Footer_Actions.map((item, index) => {
               return (
-                <Tooltip title={item.title} placement="right">
+                <Tooltip key={index} title={item.title} placement="right">
                   <Fab
                     aria-label={item.title}
                     sx={{
