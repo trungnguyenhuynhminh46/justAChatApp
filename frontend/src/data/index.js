@@ -193,7 +193,7 @@ const Chat_History = [
     type: "msg",
     subtype: "doc",
     message: "Yes sure, here you go.",
-    image: "abstract.png",
+    fileName: "abstract.png",
     incoming: true,
     outgoing: false,
   },
