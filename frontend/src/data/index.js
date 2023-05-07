@@ -32,14 +32,17 @@ const Nav_Buttons = [
   {
     index: 0,
     icon: <ChatCircleDots />,
+    href: "/app",
   },
   {
     index: 1,
     icon: <Users />,
+    href: "/friends",
   },
   {
     index: 2,
     icon: <Phone />,
+    href: "/call",
   },
 ];
 
@@ -47,6 +50,7 @@ const Nav_Setting = [
   {
     index: 3,
     icon: <GearSix />,
+    href: "/settings",
   },
 ];
 

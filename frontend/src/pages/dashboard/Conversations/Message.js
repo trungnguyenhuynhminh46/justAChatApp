@@ -21,6 +21,22 @@ import {
 } from "@mui/icons-material";
 import { Message_options } from "../../../data";
 
+function hexToRgb(input) {
+  const hex = input.slice(1);
+  if (hex) {
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+
+    const red = r / 255;
+    const green = g / 255;
+    const blue = b / 255;
+
+    return `rgba(${red}, ${green}, ${blue}, 0.3)`;
+  }
+  return "rgb(0, 0, 0)";
+}
+
 const MessageMenu = ({ sx, setShowMsgMenu }) => {
   return (
     <ClickAwayListener
@@ -28,10 +44,7 @@ const MessageMenu = ({ sx, setShowMsgMenu }) => {
         setShowMsgMenu(false);
       }}
     >
-      <Paper
-        sx={{ zIndex: 1, width: 320, maxWidth: "100%", ...sx }}
-        elevation={3}
-      >
+      <Paper sx={{ width: 320, maxWidth: "100%", ...sx }} elevation={3}>
         <MenuList>
           {Message_options.slice(0, 4).map((item) => {
             return (
@@ -373,7 +386,10 @@ const MsgDoc = (props) => {
               gap={2}
               alignItems={"center"}
               p={2}
-              sx={{ background: "#0054a8", borderRadius: "10px" }}
+              sx={{
+                background: hexToRgb(theme.palette.primary.main),
+                borderRadius: "10px",
+              }}
             >
               <IconButton>
                 <PhotoSizeSelectActualOutlinedIcon
@@ -542,7 +558,10 @@ const MsgLink = (props) => {
               gap={2}
               alignItems={"end"}
               p={2}
-              sx={{ background: "#0054a8", borderRadius: "10px" }}
+              sx={{
+                background: hexToRgb(theme.palette.primary.main),
+                borderRadius: "10px",
+              }}
             >
               <Link
                 underline="none"
@@ -731,7 +750,13 @@ const MsgReply = (props) => {
               backgroundColor: theme.palette.primary.main,
             }}
           >
-            <Box p={2} sx={{ background: "#0054a8", borderRadius: "10px" }}>
+            <Box
+              p={2}
+              sx={{
+                background: hexToRgb(theme.palette.primary.main),
+                borderRadius: "10px",
+              }}
+            >
               {message.reply}
             </Box>
             <Typography sx={{ color: "#fff" }}>{message.message}</Typography>

@@ -16,6 +16,7 @@ import Logo from "../../assets/Images/logo.ico";
 import AntSwitch from "../../components/AntSwitch";
 import useSettings from "../../hooks/useSettings";
 import { faker } from "@faker-js/faker";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -53,66 +54,68 @@ const Sidebar = () => {
         </Box>
         <Stack direction="column" alignItems="center" spacing={3}>
           {Nav_Buttons.map((item) => {
-            const isSelected = selected === item.index;
+            const isSelected = window.location.pathname === item.href;
             return (
-              <Box
-                key={item.index}
-                width={48}
-                height={48}
-                sx={{
-                  backgroundColor: isSelected
-                    ? theme.palette.primary.main
-                    : "transparent",
-                  borderRadius: 1.5,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-                onClick={() => {
-                  setSelected(item.index);
-                }}
-              >
-                <IconButton
+              <Link key={item.index} to={item.href}>
+                <Box
+                  width={48}
+                  height={48}
                   sx={{
-                    width: "max-content",
-                    color: isSelected ? "#fff" : undefined,
+                    backgroundColor: isSelected
+                      ? theme.palette.primary.main
+                      : "transparent",
+                    borderRadius: 1.5,
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  onClick={() => {
+                    setSelected(item.index);
                   }}
                 >
-                  {item.icon}
-                </IconButton>
-              </Box>
+                  <IconButton
+                    sx={{
+                      width: "max-content",
+                      color: isSelected ? "#fff" : undefined,
+                    }}
+                  >
+                    {item.icon}
+                  </IconButton>
+                </Box>
+              </Link>
             );
           })}
           <Divider variant="middle" width="100%" />
           {Nav_Setting.map((item) => {
-            const isSelected = selected === item.index;
+            const isSelected = window.location.pathname === item.href;
             return (
-              <Box
-                key={item.index}
-                width={48}
-                height={48}
-                sx={{
-                  backgroundColor: isSelected
-                    ? theme.palette.primary.main
-                    : "transparent",
-                  borderRadius: 1.5,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-                onClick={() => {
-                  setSelected(item.index);
-                }}
-              >
-                <IconButton
+              <Link key={item.index} to={item.href}>
+                <Box
+                  width={48}
+                  height={48}
                   sx={{
-                    width: "max-content",
-                    color: isSelected ? "#fff" : undefined,
+                    backgroundColor: isSelected
+                      ? theme.palette.primary.main
+                      : "transparent",
+                    borderRadius: 1.5,
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  onClick={() => {
+                    setSelected(item.index);
                   }}
                 >
-                  {item.icon}
-                </IconButton>
-              </Box>
+                  <IconButton
+                    sx={{
+                      width: "max-content",
+                      color: isSelected ? "#fff" : undefined,
+                    }}
+                  >
+                    {item.icon}
+                  </IconButton>
+                </Box>
+              </Link>
             );
           })}
         </Stack>
